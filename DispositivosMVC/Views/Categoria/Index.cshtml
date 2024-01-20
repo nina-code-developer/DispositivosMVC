@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DispositivosMVC.Models.Categorium>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Categoria</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-warning">Nueva Categoria</a>
+</p>
+<table class="table table-bordered">
+    <thead class="table text-light bg-primary">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DescripcionCt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoCt)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionCt)
+            </td>
+            <td>
+                <input type="checkbox" checked="@item.EstadoCt.GetValueOrDefault()" disabled>
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-light" asp-route-id="@item.IdCt">Actualizar</a> |
+                <a asp-action="Delete" class="btn btn-primary" asp-route-id="@item.IdCt">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

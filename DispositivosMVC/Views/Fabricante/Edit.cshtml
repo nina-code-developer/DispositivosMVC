@@ -1,0 +1,38 @@
+﻿@model DispositivosMVC.Models.Fabricante
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Fabricante</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdFb" />
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label asp-for="DescripcionFb" class="control-label">Descripcion</label>
+                    <input asp-for="DescripcionFb" class="form-control" />
+                    <span asp-validation-for="DescripcionFb" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="EstadoFb" class="control-label">Estado</label>
+                    @Html.CheckBox("EstadoFb")
+                </div>
+                <div class="form-group mt-3">
+                    <a asp-action="Index" class="btn btn-light">Cancelar</a> |
+                    <input type="submit" value="Actualizar" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

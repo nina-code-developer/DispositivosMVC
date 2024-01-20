@@ -1,0 +1,38 @@
+﻿@model DispositivosMVC.Models.Categorium
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Actualizar</h1>
+
+<h4>Categoria</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdCt" />
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <label asp-for="DescripcionCt" class="control-label">Descripcion</label>
+                    <input asp-for="DescripcionCt" class="form-control" />
+                    <span asp-validation-for="DescripcionCt" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="EstadoCt" class="control-label">Estado</label>
+                    @Html.CheckBox("EstadoCt")
+                </div>
+                <div class="form-group mt-3">
+                    <a asp-action="Index" class="btn btn-light">Cancelar</a> |
+                    <input type="submit" value="Registrar" class="btn btn-success" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

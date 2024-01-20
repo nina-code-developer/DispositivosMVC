@@ -1,0 +1,58 @@
+﻿@model DispositivosMVC.Models.DispositivoPc
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Dispositivo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdDpc" />
+            <div class="row">
+                <div class="form-group col-md-8 mt-2">
+                    <label asp-for="SerieDpc" class="control-label"></label>
+                    <input asp-for="SerieDpc" class="form-control" />
+                    <span asp-validation-for="SerieDpc" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="EstadoGarantiaDpc" class="control-label"></label>
+                    @Html.CheckBox("EstadoGarantiaDpc")
+                </div>
+                <div class="form-group col-md-8 mt-2">
+                    <label asp-for="DescripcionDpc" class="control-label"></label>
+                    <input asp-for="DescripcionDpc" class="form-control" />
+                    <span asp-validation-for="DescripcionDpc" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-8 mt-2">
+                    <label asp-for="PrecioDpc" class="control-label"></label>
+                    <input asp-for="PrecioDpc" class="form-control" />
+                    <span asp-validation-for="PrecioDpc" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-8 mt-2">
+                    <label asp-for="IdFb" class="control-label"></label>
+                    <select asp-for="IdFb" class="form-control" asp-items="ViewBag.IdFb"></select>
+                    <span asp-validation-for="IdFb" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-8 mt-2">
+                    <label asp-for="IdCt" class="control-label"></label>
+                    <select asp-for="IdCt" class="form-control" asp-items="ViewBag.IdCt"></select>
+                    <span asp-validation-for="IdCt" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-3">
+                    <a asp-action="Index" class="btn btn-light">Cancelar</a>
+                    <input type="submit" value="Guardar" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

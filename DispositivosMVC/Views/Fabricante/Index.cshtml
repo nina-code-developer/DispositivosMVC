@@ -1,0 +1,40 @@
+﻿@model IEnumerable<DispositivosMVC.Models.Fabricante>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Fabricante</h1>
+
+<p>
+    <a asp-action="Create">Crear Fabricante</a>
+</p>
+<table class="table table-bordered">
+    <thead class="table text-light bg-warning">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DescripcionFb)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoFb)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionFb)
+            </td>
+            <td>
+                <input type="checkbox" checked="@item.EstadoFb.GetValueOrDefault()" disabled>
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-light" asp-route-id="@item.IdFb">Actualizar</a> |
+                <a asp-action="Delete" class="btn btn-success" asp-route-id="@item.IdFb">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

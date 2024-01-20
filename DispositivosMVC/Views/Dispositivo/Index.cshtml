@@ -1,0 +1,64 @@
+﻿@model IEnumerable<DispositivosMVC.Models.DispositivoPc>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Dispositivo</h1>
+
+<p>
+    <a asp-action="Create">Nuevo Dispositivo</a>
+</p>
+<table class="table table-bordered">
+    <thead class="table text-black bg-info">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SerieDpc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescripcionDpc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecioDpc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoGarantiaDpc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCtNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdFbNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SerieDpc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionDpc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecioDpc)
+            </td>
+            <td>
+                <input type="checkbox" checked="@item.EstadoGarantiaDpc.GetValueOrDefault()" disabled>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCtNavigation.IdCt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdFbNavigation.IdFb)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-light" asp-route-id="@item.IdDpc">Edit</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdDpc">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
